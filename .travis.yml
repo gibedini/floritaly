@@ -1,0 +1,31 @@
+language: R
+sudo: false
+cache: packages
+
+matrix:
+  include:
+    - os: linux
+      dist: focal
+      r: release
+      latex: false
+    - os: linux
+      dist: focal
+      r: devel
+      latex: false
+    - os: osx
+      osx_image: xcode12
+      r: release
+      latex: false
+
+before_install:
+  - R -e 'install.packages("remotes")'
+  - R -e 'remotes::install_github("gibedini/floritaly")'
+
+script:
+  - R CMD build .
+  - R CMD check *tar.gz --no-manual
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
