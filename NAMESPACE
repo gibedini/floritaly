@@ -4,4 +4,3 @@ export("%>%")
 export(nameStand)
 export(superparse)
 importFrom(magrittr,"%>%")
-

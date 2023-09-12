@@ -10,8 +10,23 @@ nameStand(nvec)
 \item{nvec}{a character vector containing the scientific names of plants of the Italian flora}
 }
 \value{
-a dataframe with four columns, \code{myname}, \code{closest_match},
-.    \code{distance}, and \code{match_type}
+a dataframe with six columns, as follows:
+\enumerate{
+\item{\code{myname}: original name in user's list}
+\item{\code{closest_match}: the Checklist name with
+the least distance from the original name}
+\item{\code{distance}: the Levenshtein-Damereau distance
+between \code{closest_match} and \code{original_name}}
+\item{\code{match_type}: match type, one of
+\code{perfect}, \code{full}, \code{simple},
+\code{stem}, \code{suboptimal}, \code{species2subspecies},
+\code{subspecies2species}, and \code{unmatched} (see above
+for an explanation of match types)}
+\item{\code{ckl_id}: the unique identifier of the corresponding
+accepted name in the Checklist}
+\item{\code{accepted_name}: the accepted name corresponding to
+\code{closest_match} according to the Checklist}
+}
 }
 \description{
 Standardize scientific names against the Checklist of the Italian flora.
