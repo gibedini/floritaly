@@ -32,6 +32,7 @@ library(floritaly)
 flist <- data.frame(sci_name = c("Agropyron junceum (L.) P.Beauv.", "Elymus farctus (Viv.) Runemark", "Elytrigia mediterranea (Simonet) Produkin", "Tinopyrum junceum (L.) Lowe", "Otanthus maritimus (L.) Hoffmans. & Link", "Achillea marittima (L.) Ehrend & Y. P. Guo subsp. maritima", "Helicrysum stoechas (L.) Moench"),
         habitat = rep("sand dune",7),
         source = c("Bedini, 1994","Ciccarelli, 2003", "Montelucci, 1950", HCI specimen 112-08986a", "Garbari e Del Prete, 1976", "PISA specimen 18907"), "Astuti, 2012")
+        
 ## basic example code
 
 cat("Number of species in raw list:",length(unique(flist$sci_name),"\n")
