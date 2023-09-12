@@ -2,6 +2,8 @@
 # floritaly
 
 <!-- badges: start -->
+[![Build Status](https://travis-ci.org/gibedini/floritaly.svg?branch=master)](https://travis-ci.org/gibedini/floritaly)
+[![GitHub release](https://img.shields.io/github/release/gibedini/floritaly.svg)](https://github.com/gibedini/floritaly/releases)
 <!-- badges: end -->
 
 The goal of floritaly is to provide an easy access to the Checklist of the Italian vascular flora from R. Floritaly presents plant names and associated data in three data frames that can be joined and filtered with the usual panoply provided by the dplyr package. In addition, floritaly offers the function nameStand which takes a list of scientific names as input, fuzzy-matches them to Checklist names and retrieves the corresponding accepted names.
