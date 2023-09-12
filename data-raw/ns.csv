@@ -1,0 +1,10 @@
+"","myname","closest_match","distance","match_type","codice_unico","entita"
+"1","Agropyron junceum (L.) P.Beauv.","Agropyron junceum (L.) P.Beauv.",0,"perfect",7476,"Thinopyrum junceum (L.) Á.Löve"
+"2","Elymus farctus (Viv.) Runemark","Elymus farctus (Viv.) Runemark ex Melderis",12,"full",7476,"Thinopyrum junceum (L.) Á.Löve"
+"3","Elytrigia mediterranea (Simonet) Produkin","Elytrigia mediterranea (Simonet) Prokudin",2,"full",7476,"Thinopyrum junceum (L.) Á.Löve"
+"4","Otanthus maritimus (L.) Hoffmans. & Link","Otanthus maritimus (L.) Hoffmanns. & Link",1,"full",5664,"Achillea maritima (L.) Ehrend. & Y.P.Guo subsp. maritima"
+"5","Achillea marittima (L.) Ehrend & Y. P. Guo subsp. maritima","Achillea maritima (L.) Ehrend. & Y.P.Guo subsp. maritima",4,"suboptimal match",5664,"Achillea maritima (L.) Ehrend. & Y.P.Guo subsp. maritima"
+"6","Helicrysum stoechas (L.) Moench","Helichrysum stoechas (L.) Moench",1,"suboptimal match",9179,"Helichrysum stoechas (L.) Moench"
+"7","Tinopyrum junceum (L.) Lowe","Thinopyrum junceum (L.) Á.Löve",5,"suboptimal match",7476,"Thinopyrum junceum (L.) Á.Löve"
+"8","Triticum litoreum Brot.","",99,"unmatched",NA,NA
+"9","Diotis candidissima Desf.","",99,"unmatched",NA,NA

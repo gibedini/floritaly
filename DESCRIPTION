@@ -1,0 +1,27 @@
+Package: floritaly
+Type: Package
+Title: Access the Checklist of Italian Vascular Flora
+Version: 0.1.0
+Authors@R: 
+    person("Gianni", "Bedini", , "gianni.bedini@unipi.it", role = c("aut", "cre"))
+Description: Access the Checklist of Italian vascular flora, bundled as dataframe 
+    in three forms: all names (accepted and synonyms), accepted names with associated data, 
+    and parsed names. In addition, it offers the \code{namestand()} function 
+    to standardise a set of names against the Checklist.
+License: CC BY 4.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    dplyr,
+    fuzzyjoin,
+    magrittr,
+    rgnparser,
+    stringdist,
+    stringr
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
