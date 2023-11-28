@@ -39,7 +39,7 @@ superparse <- function(namevek) {
                stop = 999)
   h2 <- myparsed$i_epithet[myparsed$cardinality == 3]
   h3 <- myparsed$i_qualend[myparsed$cardinality == 3] + 1
-  
+
   myparsed$i_epitend[myparsed$cardinality == 3] <- stringr::str_locate(h1,h2)[,2] + h3
   myparsed$s_author[myparsed$cardinality == 3] <- detect_siauth(myparsed[myparsed$cardinality == 3,])
   myparsed$i_author <- emptychar

@@ -64,6 +64,7 @@
 #'
 #' @export nameStand
 #'
+#'
 #' @examples my_names <- c("Crocus etruscus Parl.","Santolina pinnata Viv.")
 #' s <- nameStand(my_names)
 nameStand <- function(nvec) {
