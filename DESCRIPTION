@@ -1,7 +1,7 @@
 Package: floritaly
 Type: Package
 Title: Access the Checklist of Italian Vascular Flora
-Version: 2023.1
+Version: 1.12.0
 Authors@R: 
     person("Gianni", "Bedini", , "gianni.bedini@unipi.it", role = c("aut", "cre"))
 Description: Access the Checklist of Italian vascular flora, bundled as dataframe 
@@ -15,14 +15,14 @@ RoxygenNote: 7.2.1
 Imports: 
     dplyr,
     fuzzyjoin,
+    httr,
+    jsonlite,
     magrittr,
     rgnparser,
     stringdist,
     stringr
 Depends: 
-    R (>= 2.10),
-    httr,
-    jsonlite
+    R (>= 2.10)
 LazyData: true
 Suggests: 
     testthat (>= 3.0.0)

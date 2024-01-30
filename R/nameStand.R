@@ -131,7 +131,7 @@ nameStand <- function(nvec) {
 ijoin <- function(ds,jcol,mtyp) {
   cat("Looking for",mtyp,"matches... ")
   ij <- dplyr::inner_join(ds,ckl_parsed,by = jcol, keep = TRUE) %>%
-    squeeze_df(., mt = mtyp)
+    squeeze_df(mt = mtyp) ### originally squeeze_df(.,mt=mtyp)
   cat("found ", nrow(ij),"\n")
   return(ij)
 }
@@ -141,7 +141,7 @@ fjoin <- function(ds,jcol,maxdist,mtyp,ckl_df) {
   fj <- fuzzyjoin::stringdist_inner_join(ds,ckl_df,by = jcol,
                                          max_dist = maxdist, method = "lv",
                                          distance_col ="fuzzydist") %>%
-    squeeze_df(., mt = mtyp) %>% pick_mindist()
+    squeeze_df(mt = mtyp) %>% pick_mindist() ### originally squeeze_df(.,mt=mtyp)
   cat("found ", nrow(fj), "\n")
   return(fj)
 }

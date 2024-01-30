@@ -3,4 +3,6 @@
 export("%>%")
 export(nameStand)
 export(superparse)
+import(httr)
+import(jsonlite)
 importFrom(magrittr,"%>%")

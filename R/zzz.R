@@ -1,5 +1,7 @@
 ### zzz.R
 ### set up onload function
+#' @import httr
+#' @import jsonlite
 
 .onAttach <- function(libname,pkgname) {
 

@@ -1,17 +1,21 @@
-#' Italian Checklist of Vascular Flora: version id
+#' Italian Checklist of Vascular Flora: version
 #'
 #'
-#' A dataframe containing the columns "version" and a single row
+#' The version of the Checklist of the Italian vascular flora.
+#'
+#'
 #' @docType data
 #' @name ckl_version
 #'
 #'
-#' @source \url{https://www.dryades.units/floritaly}
+#' @source \url{https://dryades.units.it/api_test/floritaly/version}
 #' @format
-#' ckl_version is a dataframe with 1 row and 1 column:
+#' ckl_version is a dataframe with 1 row and 1 columns:
 #' \describe{
-#'  \item{version}{alphanumeric, version of Italian Checklist of Vascular Flora}
+#'  \item{version}{version of the Checklist, in the format yyyy.n, where yyyy is the year of release, n is the issue}
 #' }
 #'
+#' ckl_version is a dataframe with 1 row and 1 column.
+#' ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
 #'
 c("ckl_version")
