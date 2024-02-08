@@ -1,15 +1,15 @@
 #' Italian Checklist of Vascular Flora: all data
 #'
 #'
-#' A dataset containing the complete list of accepted vascular plant names 
+#' A dataset containing the complete list of accepted vascular plant names
 #' recorded in Italy and their distribution data, alien status, conservation status and more.
 #' @docType data
 #' @name ckl_data
-#' 
+#'
 #'
 #' @source \url{https://www.dryades.units/floritaly}
 #' @format
-#' ckl_data is a dataframe with 11080 rows and 39 columns:
+#' ckl_data is a dataframe with 39 columns:
 #' \describe{
 #'  \item{codice_unico}{numeric, unique identifier of the plant name}
 #'  \item{famiglia_checklist}{character, botanical family of the plant name}

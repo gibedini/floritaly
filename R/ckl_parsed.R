@@ -2,14 +2,15 @@
 #'
 #'
 #' A dataset containing the complete list of parsed vascular plant names - accepted and synonyms -
-#' recorded in Italy. 
+#' recorded in Italy.
 #' @docType data
 #' @name ckl_parsed
-#' 
+#'
 #'
 #' @source \url{https://www.dryades.units/floritaly}
 #' @format
-#' ckl_parsed is a dataframe with 23743 rows and 9 columns:
+#' ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
+#' ckl_parsed contains 9 columns:
 #' \describe{
 #'  \item{id}{unique identifier of the plant name}
 #'  \item{verbatim}{original plant name}
@@ -22,7 +23,5 @@
 #'  \item{quality}{parsing quality}
 #' }
 #'
-#' ckl_data is a dataframe with 11080 rows and 39 columns.
-#' ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
 #'
 c("ckl_parsed")
