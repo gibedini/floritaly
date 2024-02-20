@@ -4,12 +4,12 @@ library(httr)
 library(jsonlite)
 
 # fetch checklist version from server
-version <-httr::GET('https://dryades.units.it/api_test/floritaly/version')
+version <-httr::GET('https://dryades.units.it/api_test/floritaly/rversion')
 
 # convert from JSON string
-version_data = fromJSON(rawToChar(version$content))
+version_data0 = fromJSON(rawToChar(version$content))
 
+ckl_version <- data.frame(major = 1, minor = as.numeric(version_data0), patch = 0)
 # transform string to dataframe
-version_data = as.data.frame(version_data)
 
-usethis::use_data(version, overwrite = TRUE)
+usethis::use_data(ckl_version, overwrite = TRUE)

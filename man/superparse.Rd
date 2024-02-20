@@ -10,7 +10,25 @@ superparse(namevek)
 \item{namevek}{a character vector containing scientific names}
 }
 \value{
-a dataframe with many columns
+a dataframe with 15 columns originating from \code{rgnparser::gn_parse_tidy} as
+well as from the code in this function:
+\describe{
+\item{id}{unique identifier of the plant name}
+\item{verbatim}{original plant name}
+\item{cardinality}{cardinality}
+\item{canonicalstem}{canonical name, only stem}
+\item{canonicalsimple}{canonical name, only epithets}
+\item{canonicalfull}{canonical name with epithets and infraspecific qualifier}
+\item{authorship}{authors of plant names}
+\item{year}{year of publication}
+\item{quality}{parsing quality on a 1-4 scale (1 best, 4 worst)}
+\item{g_epithet}{generic epithet}
+\item{s_epithet}{specific epithet}
+\item{s_author}{author(s) of the binomial combination}
+\item{i_qualif}{infraspecific rank qualifier (e.g. subsp., var.)}
+\item{i_epithet}{infraspecific epithet}
+\item{i_author}{author(s) of the trinomial combination}
+}
 }
 \description{
 Extracts generic, specific, and infraspecific epithets along with

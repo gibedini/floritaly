@@ -5,7 +5,8 @@
 \alias{ckl_parsed}
 \title{Italian Checklist of Vascular Flora: parsed names}
 \format{
-ckl_parsed is a dataframe with 23743 rows and 9 columns:
+ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
+ckl_parsed contains 9 columns:
 \describe{
 \item{id}{unique identifier of the plant name}
 \item{verbatim}{original plant name}
@@ -17,9 +18,6 @@ ckl_parsed is a dataframe with 23743 rows and 9 columns:
 \item{year}{year}
 \item{quality}{parsing quality}
 }
-
-ckl_data is a dataframe with 11080 rows and 39 columns.
-ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
 }
 \source{
 \url{https://www.dryades.units/floritaly}

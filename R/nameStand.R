@@ -2,8 +2,8 @@
 #'
 #' Standardize scientific names against the Checklist of the Italian flora.
 #' The function attempts to find the best matching names against the
-#' Checklist of the Italian flora
-#' for each item of nvec, a character vector containing the scientific name to
+#' \href{https://dryades.units.it/floritaly/index.php}{Checklist of the Italian flora}.
+#' For each item of nvec, a character vector containing the scientific name to
 #' match.
 #'
 #' First, the names are parsed by the \code{superparse} function, an
@@ -44,7 +44,7 @@
 #'
 #' @param nvec a character vector containing the scientific names of plants of the Italian flora
 #'
-#' @return a dataframe with six columns, as follows:
+#' @return a dataframe of class \code{CklStandardNames} with six columns, as follows:
 #'    \enumerate{
 #'      \item{\code{myname}: original name in user's list}
 #'      \item{\code{closest_match}: the Checklist name with
@@ -73,7 +73,7 @@ nameStand <- function(nvec) {
   s_row <- nrow(s)
   m_exact <- data.frame(jcol = c("verbatim","canonicalfull","canonicalsimple","canonicalstem"),
                         mtyp = c("perfect","full","simple","stem"))
-  e_match <- ijoin(ds = s,jcol = m_exact$jcol[1],mtyp =m_exact$mtyp[1])
+  e_match <- ijoin(ds = s,jcol = m_exact$jcol[1],mtyp = m_exact$mtyp[1])
 
   for(i in 2:nrow(m_exact)) {
     if(nrow(e_match) == s_row) break
@@ -124,6 +124,7 @@ nameStand <- function(nvec) {
   accepted_match <- dplyr::left_join(closest_match,ckl_names,
                                       by=c("closest_match" = "sinonimo"),
                                      keep = FALSE)
+
 
   return(accepted_match)
 }

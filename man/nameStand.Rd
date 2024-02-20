@@ -10,7 +10,7 @@ nameStand(nvec)
 \item{nvec}{a character vector containing the scientific names of plants of the Italian flora}
 }
 \value{
-a dataframe with six columns, as follows:
+a dataframe of class \code{CklStandardNames} with six columns, as follows:
 \enumerate{
 \item{\code{myname}: original name in user's list}
 \item{\code{closest_match}: the Checklist name with
@@ -31,8 +31,8 @@ accepted name in the Checklist}
 \description{
 Standardize scientific names against the Checklist of the Italian flora.
 The function attempts to find the best matching names against the
-Checklist of the Italian flora
-for each item of nvec, a character vector containing the scientific name to
+\href{https://dryades.units.it/floritaly/index.php}{Checklist of the Italian flora}.
+For each item of nvec, a character vector containing the scientific name to
 match.
 }
 \details{

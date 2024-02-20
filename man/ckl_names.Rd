@@ -5,7 +5,7 @@
 \alias{ckl_names}
 \title{Italian Checklist of Vascular Flora: names}
 \format{
-ckl_names is a dataframe with 26113 rows and 3 columns:
+ckl_names is a dataframe with 3 columns:
 \describe{
 \item{codice_unico}{unique identifier of the plant name}
 \item{entita}{accepted plant name}
