@@ -44,13 +44,16 @@
 #'
 #' @param nvec a character vector containing the scientific names of plants of the Italian flora
 #'
-#' @return a dataframe of class \code{CklStandardNames} with six columns, as follows:
+#' @return a dataframe of class \code{CklStandardNames} with seven columns, as follows:
 #'    \enumerate{
 #'      \item{\code{myname}: original name in user's list}
 #'      \item{\code{closest_match}: the Checklist name with
 #'            the least distance from the original name}
-#'      \item{\code{distance}: the Levenshtein-Damereau distance
+#'      \item{\code{full_distance}: the Levenshtein-Damereau distance
 #'            between \code{closest_match} and \code{original_name}}
+#'      \item{\code{epithet_distance}: the Levenshtein-Damereau distance
+#'            between the \code{full canonical form} of the \code{closest_match}
+#'            and the \code{full canonical form} of the \code{original_name}}
 #'      \item{\code{match_type}: match type, one of
 #'            \code{perfect}, \code{full}, \code{simple},
 #'            \code{stem}, \code{suboptimal}, \code{species2subspecies},
@@ -68,8 +71,10 @@
 #' @examples my_names <- c("Crocus etruscus Parl.","Santolina pinnata Viv.")
 #' s <- nameStand(my_names)
 nameStand <- function(nvec) {
-  s <- floritaly::superparse(nvec) %>%
-    dplyr::filter(quality > 0, quality < 5, cardinality > 1, cardinality < 4)
+  xy <- floritaly::superparse(nvec)
+  s <- dplyr::filter(xy, quality > 0, quality < 5, cardinality > 1, cardinality < 4)
+  q <- dplyr::filter(xy, quality == 0 | quality >= 5 | cardinality <= 1 | cardinality >= 4)
+
   s_row <- nrow(s)
   m_exact <- data.frame(jcol = c("verbatim","canonicalfull","canonicalsimple","canonicalstem"),
                         mtyp = c("perfect","full","simple","stem"))
@@ -112,18 +117,28 @@ nameStand <- function(nvec) {
   if(exists("unmatched_v")) {
     unmatched <- dplyr::filter(s,verbatim %in% unmatched_v) %>%
       dplyr::select(verbatim) %>% dplyr::rename(myname = verbatim) %>%
-      dplyr::mutate(closest_match = '', distance = 99, match_type = "unmatched")
+      dplyr::mutate(closest_match = '', full_distance = 99, epithet_distance = 99, match_type = "unmatched")
     closest_match <- dplyr::union(e_match,unmatched)
     cat(nrow(unmatched),"names remain unmatched\n")
   } else {
     closest_match <- e_match
     cat("all",nrow(closest_match), "supplied names have been matched\n")
   }
+  if(nrow(q) > 0) {
+    cat(nrow(q), "name(s) are not at specific/infraspecific rank or are malformed and have not been evaluated\n")
+    cat("\n*** LIST OF UNEVALUATED NAMES ***\n")
+    print(q$verbatim)
+    cat("\n")
+  }
   cat("name standardization terminated\n")
   cat("retrieving accepted names...\n")
+
   accepted_match <- dplyr::left_join(closest_match,ckl_names,
                                       by=c("closest_match" = "sinonimo"),
-                                     keep = FALSE)
+                                     keep = FALSE) %>%
+    dplyr::mutate(codice_unico = dplyr::if_else(closest_match == '',NA,codice_unico),
+           entita = dplyr::if_else(closest_match == '',NA,entita)) %>%
+    dplyr::rename(accepted_name = entita, ckl_id = codice_unico)
 
 
   return(accepted_match)
@@ -132,7 +147,7 @@ nameStand <- function(nvec) {
 ijoin <- function(ds,jcol,mtyp) {
   cat("Looking for",mtyp,"matches... ")
   ij <- dplyr::inner_join(ds,ckl_parsed,by = jcol, keep = TRUE) %>%
-    squeeze_df(mt = mtyp) ### originally squeeze_df(.,mt=mtyp)
+    squeeze_df(mt = mtyp) %>% pick_mindist() ### originally squeeze_df(.,mt=mtyp)
   cat("found ", nrow(ij),"\n")
   return(ij)
 }
@@ -152,10 +167,11 @@ squeeze_df <- function(df,mt) {
   ### and as many rows as dictated by filtering expression in the calling code.
   ### This function selects the original and matched name columns, renames them, and
   ### adds the levenshtein distance between them and the match type passed as mt (a character string)
-  dd <- dplyr::select(df, verbatim.x,verbatim.y) %>%
+  dd <- dplyr::select(df, verbatim.x,verbatim.y,canonicalfull.x, canonicalfull.y) %>%
     dplyr::rename(myname = verbatim.x, closest_match = verbatim.y) %>%
-    dplyr::mutate(distance = stringdist::stringdist(myname,closest_match,method = "lv"),
-                  match_type = mt)
+    dplyr::mutate(full_distance = stringdist::stringdist(myname,closest_match,method = "lv"),
+                  epithet_distance = stringdist::stringdist(canonicalfull.x,canonicalfull.y),
+                  match_type = mt) %>% dplyr::select(-canonicalfull.x,-canonicalfull.y)
   return(dd)
 }
 
@@ -166,7 +182,7 @@ pick_mindist <- function(df) {
   ### only the first row of that set and returns a dataframe with as many rows as the original
   ### names in df
   dd <- dplyr::group_by(df, myname) %>%
-    dplyr::slice_min(distance) %>%
+    dplyr::slice_min(full_distance) %>%
     dplyr::slice_head()
   return(dd)
 }

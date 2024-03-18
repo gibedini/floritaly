@@ -5,13 +5,12 @@
 \alias{ckl_version}
 \title{Italian Checklist of Vascular Flora: version}
 \format{
-ckl_version is a dataframe with 1 row and 1 columns:
+ckl_version is a dataframe with 1 row and 3 columns:
 \describe{
-\item{version}{version of the Checklist, in the format yyyy.n, where yyyy is the year of release, n is the issue}
+\item{major}{major number of the package version}
+\item{minor}{minor number of the package version}
+\item{patch}{patch number of the package version}
 }
-
-ckl_version is a dataframe with 1 row and 1 column.
-ckl_parsed is a dataframe with parsed names from ckl_names. Parsing is done via rgnparser
 }
 \source{
 \url{https://dryades.units.it/api_test/floritaly/version}

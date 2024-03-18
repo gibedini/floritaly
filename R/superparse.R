@@ -45,8 +45,9 @@ superparse <- function(namevek) {
 
   myparsed_c2 <- dplyr::filter(myparsed, cardinality == 2)
   myparsed_c3 <- dplyr::filter(myparsed, cardinality == 3)
+  myparsed_cx <- dplyr::filter(myparsed, cardinality <= 1 | cardinality >= 4)
 
-  myparsed_c2$s_author <- detect_lastauthor(myparsed_c2)
+  if(nrow(myparsed_c2) > 0) myparsed_c2$s_author <- detect_lastauthor(myparsed_c2)
 
   if(nrow(myparsed_c3) > 0) {
     myparsed_c3$s_author <- detect_interauthor(myparsed_c3)
@@ -55,7 +56,7 @@ superparse <- function(namevek) {
     myparsed_c3$i_author <- detect_lastauthor(myparsed_c3)
   }
 
-  myparsed <- dplyr::bind_rows(myparsed_c2,myparsed_c3)
+  myparsed <- dplyr::bind_rows(myparsed_c2,myparsed_c3,myparsed_cx)
   cat("job ended, returning control to main function.")
   return(myparsed)
 }

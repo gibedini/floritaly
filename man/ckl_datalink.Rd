@@ -13,7 +13,65 @@ to link to regional distribution, or a dataframe returned by the
 The default value is "Crocus etruscus Parl."}
 }
 \value{
-a dataframe with n columns
+a dataframe with n columns:
+\enumerate{
+\item{\code{myname}: original name in user's list}
+\item{\code{closest_match}: the Checklist name with
+the least distance from the original name}
+\item{\code{full_distance}: the Levenshtein-Damereau distance
+between \code{closest_match} and \code{original_name}}
+\item{\code{epithet_distance}: the Levenshtein-Damereau distance
+between the \code{full canonical form} of the \code{closest_match}
+and the \code{full canonical form} of the \code{original_name}}
+\item{\code{match_type}: match type, one of
+\code{perfect}, \code{full}, \code{simple},
+\code{stem}, \code{suboptimal}, \code{species2subspecies},
+\code{subspecies2species}, and \code{unmatched} (see above
+for an explanation of match types)}
+\item{\code{ckl_id}: the unique identifier of the corresponding
+accepted name in the Checklist}
+\item{\code{accepted_name}: the accepted name corresponding to the
+\code{closest_match} according to the Checklist}
+.     \item{\code{famiglia_checklist}}: {character, botanical family of the plant name}
+\item{\code{END}}: {character, it states whether the species is endemic to Italy or not}
+\item{\code{c}}: {character}
+\item{\code{ESO}}: {character, is the species alien?}
+\item{\code{CULTON_FERAL}}: {character, is the species culton/feral?}
+\item{\code{T}}: {character}
+\item{\code{ABR}}: {character, status in Abruzzo}
+\item{\code{BAS}}: {character, status in Basilicata}
+\item{\code{CAL}}: {character, status in Calabria}
+\item{\code{CAM}}: {character, status in Campania}
+\item{\code{EMR}}: {character, status in Emilia-Romagna}
+\item{\code{FVG}}: {character, status in Friuli-Venezia-Giulia}
+\item{\code{LAZ}}: {character, status in Lazio}
+\item{\code{LIG}}: {character, status in Liguria}
+\item{\code{LOM}}: {character, status in Lombardia}
+\item{\code{MAR}}: {character, status in Marche}
+\item{\code{MOL}}: {character, status in Molise}
+\item{\code{PIE}}: {character, status in Piemonte}
+\item{\code{PUG}}: {character, status in Puglia}
+\item{\code{SAR}}: {character, status in Sardegna}
+\item{\code{SIC}}: {character, status in Sicilia}
+\item{\code{TAA}}: {character, status in Trentino-Alto Adige}
+\item{\code{TOS}}: {character, status in Toscana}
+\item{\code{UMB}}: {character, status in Umbria}
+\item{\code{VDA}}: {character, status in Valle d'Aosta}
+\item{\code{VEN}}: {character, status in Veneto}
+\item{\code{P}}: {character}
+\item{\code{NC}}: {character, identifies species with old, unconfirmed records}
+\item{\code{EX}}: {character, identifies extinct species}
+\item{\code{D}}: {character}
+\item{\code{DD}}: {character}
+\item{\code{NP}}: {character, identifies absent species}
+\item{\code{status_naz_aliene}}: {character, alien status in Italy}
+\item{\code{Note}}: {character, notes}
+\item{\code{taraxacum_sezioni}}: {character, section of Taraxacum}
+\item{\code{rilevanza_unionale}}: {character, identifies invasive species of UE concern}
+\item{\code{lista_rossa}}: {character, IUCN risk category in the national Red List}
+\item{\code{Criteri Lista Rossa Italiana}}: {IUCN category in the Italian Red List of Vascular Plants}
+\item{\code{tipologia assessment}}: {}
+}
 }
 \description{
 Link scientific names to regional distribution data

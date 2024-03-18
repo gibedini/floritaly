@@ -10,13 +10,16 @@ nameStand(nvec)
 \item{nvec}{a character vector containing the scientific names of plants of the Italian flora}
 }
 \value{
-a dataframe of class \code{CklStandardNames} with six columns, as follows:
+a dataframe of class \code{CklStandardNames} with seven columns, as follows:
 \enumerate{
 \item{\code{myname}: original name in user's list}
 \item{\code{closest_match}: the Checklist name with
 the least distance from the original name}
-\item{\code{distance}: the Levenshtein-Damereau distance
+\item{\code{full_distance}: the Levenshtein-Damereau distance
 between \code{closest_match} and \code{original_name}}
+\item{\code{epithet_distance}: the Levenshtein-Damereau distance
+between the \code{full canonical form} of the \code{closest_match}
+and the \code{full canonical form} of the \code{original_name}}
 \item{\code{match_type}: match type, one of
 \code{perfect}, \code{full}, \code{simple},
 \code{stem}, \code{suboptimal}, \code{species2subspecies},
