@@ -13,7 +13,7 @@ to link to regional distribution, or a dataframe returned by the
 The default value is "Crocus etruscus Parl."}
 }
 \value{
-a dataframe with n columns:
+a dataframe with 46 columns:
 \enumerate{
 \item{\code{myname}}: {original name in user's list}
 \item{\code{closest_match}}: {the Checklist name with

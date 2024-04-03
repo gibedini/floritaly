@@ -6,7 +6,7 @@
 #' \code{nameStand} function. Anything else will throw an error.
 #' The default value is "Crocus etruscus Parl."
 #'
-#' @return a dataframe with n columns:
+#' @return a dataframe with 46 columns:
 #'    \enumerate{
 #'      \item{\code{myname}}: {original name in user's list}
 #'      \item{\code{closest_match}}: {the Checklist name with

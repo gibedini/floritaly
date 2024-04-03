@@ -3,12 +3,12 @@ Type: Package
 Title: Access the Checklist of Italian Vascular Flora
 Version: 1.11.0
 Authors@R: 
-    person("Gianni", "Bedini", , "gianni.bedini@unipi.it", role = c("aut", "cre"))
-    person("Matteo", "Conti", , "matteo.conti@phd.units.it", role = c("aut", "cre"))
-Description: Access the Checklist of Italian vascular flora, bundled as dataframe 
-    in three forms: all names (accepted and synonyms), accepted names with associated data, 
-    and parsed names. In addition, it offers the \code{namestand()} function 
-    to standardise a set of names against the Checklist, and the \code{ckl_datalink} 
+    person("Gianni", "Bedini", , "gianni.bedini@unipi.it", role = c("aut", "cre", "cph"))
+    person("Matteo", "Conti", , "matteo.conti@phd.units.it", role = c("aut", "cre","cph"))
+Description: Access the "Checklist of Italian vascular flora", bundled as
+    three dataframes named all names (accepted and synonyms), accepted names with associated data, 
+    and parsed names. In addition, it offers the namestand() function 
+    to standardise a set of names against the Checklist, and the ckl_datalink()
     function to link scientific names to the regional distribution data included in 
     the Checklist.
 License: MIT + file LICENSE

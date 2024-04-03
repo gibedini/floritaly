@@ -5,7 +5,7 @@
 \alias{ckl_data}
 \title{Italian Checklist of Vascular Flora: all data}
 \format{
-ckl_data is a dataframe with 39 columns:
+ckl_data is a dataframe with 41 columns:
 \enumerate{
 \item{\code{codice_unico}}: {numeric, unique identifier of the plant name}
 \item{\code{accepted_name}}: {character, the accepted name}
@@ -89,7 +89,7 @@ EU concern, \code{NA} not applicable}
 }
 }
 \source{
-\url{https://www.dryades.units/floritaly}
+\url{https://www.dryades.units/floritaly/}
 }
 \description{
 A dataset containing the complete list of accepted vascular plant names

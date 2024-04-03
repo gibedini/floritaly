@@ -7,9 +7,9 @@
 #' @name ckl_data
 #'
 #'
-#' @source \url{https://www.dryades.units/floritaly}
+#' @source \url{https://www.dryades.units/floritaly/}
 #' @format
-#' ckl_data is a dataframe with 39 columns:
+#' ckl_data is a dataframe with 41 columns:
 #' \enumerate{
 #'      \item{\code{codice_unico}}: {numeric, unique identifier of the plant name}
 #'      \item{\code{accepted_name}}: {character, the accepted name}

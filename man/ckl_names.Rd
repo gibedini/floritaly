@@ -6,14 +6,14 @@
 \title{Italian Checklist of Vascular Flora: names}
 \format{
 ckl_names is a dataframe with 3 columns:
-\describe{
-\item{codice_unico}{unique identifier of the plant name}
-\item{entita}{accepted plant name}
-\item{sinonimo}{synonym}
+\enumerate{
+\item{codice_unico}: {unique identifier of the plant name}
+\item{entita}: {accepted plant name}
+\item{sinonimo}: {synonym}
 }
 }
 \source{
-\url{https://www.dryades.units/floritaly}
+\url{https://www.dryades.units/floritaly/}
 }
 \description{
 A dataset containing the complete list of vascular plant names - accepted and synonyms -
